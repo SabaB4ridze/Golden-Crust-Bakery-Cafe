@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Crust Bakery & Cafe</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Supabase CDN Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <header class="hero" data-animation="header-slide-down">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="restaurant-title">Golden Crust Bakery & Cafe</h1>
+            <p class="restaurant-tagline">Artisan Breads & Crafted Coffee</p>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#welcome" class="nav-link active" id="welcome-link">Home</a></li>
+                    <li><a href="#menu" class="nav-link" id="menu-link">Menu</a></li>
+                    <li><a href="#reservations" class="nav-link" id="reservations-link">Reservations</a></li>
+                    <li><a href="#contact" class="nav-link" id="contact-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="welcome" class="section">
+            <h2 data-animation="slide-down">Welcome to Golden Crust</h2>
+            <p data-animation="slide-left">Step into a world of exquisite aromas and flavors. At Golden Crust, we bake with passion, crafting each loaf and pastry to perfection. Experience the warmth of tradition and the delight of fresh, high-quality ingredients.</p>
+            
+            <div class="featured-item-container" data-animation="slide-right">
+                <div class="featured-item-content">
+                    <h3 class="featured-item-title" data-animation="slide-up">Our Signature Creation</h3>
+                    <p class="featured-item-name" data-animation="slide-up">Artisan Sourdough with Roasted Garlic</p>
+                    <p class="featured-item-description" data-animation="slide-up">
+                        Our beloved classic, perfected over years. A crusty exterior, a soft, airy interior, and a hint of roasted garlic for an unforgettable experience.
+                    </p>
+                    <button id="view-menu" class="cta-btn" data-animation="slide-up">Explore Our Full Menu</button>
+                </div>
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Signature Sourdough Loaf" class="featured-item-image" data-animation="slide-up">
+            </div>
+        </section>
+
+        <section id="menu" class="section">
+            <h2 data-animation="slide-down">Our Delicious Offerings</h2>
+            <div class="menu-controls">
+                <div class="search-container" data-animation="slide-down">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-input" placeholder="Search our menu...">
+                </div>
+            </div>
+            <div id="category-filters" class="filter-buttons" data-animation="slide-up">
+                <!-- Filter buttons will be populated by JavaScript -->
+            </div>
+            <div id="menu-items" class="menu-grid">
+                <!-- Menu items will be loaded dynamically by JavaScript from Supabase -->
+                <p style="text-align: center; color: var(--accent-color);">Loading menu items...</p>
+            </div>
+        </section>
+
+        <section id="reservations" class="section">
+            <h2 data-animation="slide-down">Reserve Your Experience</h2>
+            <p data-animation="slide-left">Planning a special visit or just want to ensure a table? Book your reservation with ease and let us prepare for your arrival.</p>
+            <form id="reservation-form" data-animation="slide-up">
+                <div class="form-group">
+                    <label for="res-name">Your Name:</label>
+                    <input type="text" id="res-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="res-date">Date:</label>
+                    <input type="date" id="res-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="res-time">Time:</label>
+                    <input type="time" id="res-time" required>
+                </div>
+                <div class="form-group">
+                    <label for="res-guests">Number of Guests:</label>
+                    <input type="number" id="res-guests" min="1" max="10" value="1" required>
+                </div>
+                <button type="submit" class="cta-btn">Confirm Reservation</button>
+                <p id="reservation-message" class="form-message"></p>
+            </form>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 data-animation="slide-down">Connect With Us</h2>
+            <p data-animation="slide-left">We love hearing from our community! Feel free to reach out with any questions or just to say hello.</p>
+            <div class="contact-info" data-animation="slide-up">
+                <p><i class="fa-solid fa-map-marker-alt"></i> 456 Flourish St, Artisan Quarter, CA 90210</p>
+                <p><i class="fa-solid fa-phone"></i> (555) 987-6543</p>
+                <p><i class="fa-solid fa-envelope"></i> contact@goldencrust.com</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" data-animation="footer-slide-up">
+        <div class="footer-bottom">
+            <span>© 2025 Golden Crust Bakery & Cafe</span>
+            <span class="separator">•</span>
+            <div class="powered-by">
+                <span>Powered by</span>
+                <img src="osg.png" alt="OSG Logo">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load scripts -->
+    <script src="supabase.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
