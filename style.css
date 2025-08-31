@@ -177,6 +177,7 @@ main {
     background-color: var(--primary-bg); /* Cream background for input */
     color: var(--text-color);
     transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
 #search-input::placeholder {
     color: rgba(51, 51, 51, 0.6);
@@ -542,18 +543,20 @@ main {
     .footer-bottom .separator {
         display: none;
     }
+    /* === FIX FOR MOBILE SEARCH INPUT === */
     .search-container {
-        max-width: 100%;
-        width: 100%;
-        padding: 0 10px;
-        box-sizing: border-box;
+        padding: 0 15px; /* Add some horizontal padding to the container itself */
     }
     #search-input {
-        max-width: 100%;
-        width: 100%;
+        width: 100%; /* Remains 100% */
+        padding: 12px 15px 12px 45px; /* Adjusted padding to ensure it fits. Left padding adjusted for icon */
         font-size: 0.95rem;
-        padding-left: 45px;
+        box-sizing: border-box; /* Crucial: make sure padding is included in the width */
     }
+    .search-container .fa-solid {
+        left: 25px; /* Adjusted icon position to align with new padding */
+    }
+    /* ================================== */
 }
 
 @media (max-width: 480px) {
